@@ -40,8 +40,9 @@
 #include "MK22F51212.h"
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
-
+#include "application.h"
 /* TODO: insert other definitions and declarations here. */
+
 
 /*
  * @brief   Application entry point.
@@ -59,14 +60,8 @@ int main(void) {
 
     PRINTF("Hello World\n");
 
-    /* Force the counter to be placed into memory. */
-    volatile static int i = 0 ;
-    /* Enter an infinite loop, just incrementing a counter. */
-    while(1) {
-        i++ ;
-        /* 'Dummy' NOP to allow source level single stepping of
-            tight while() loop */
-        __asm volatile ("nop");
-    }
+    /* run app */
+    App_Run();
+
     return 0 ;
 }
