@@ -41,6 +41,7 @@
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
 #include "application.h"
+#include "platform.h"
 /* TODO: insert other definitions and declarations here. */
 
 
@@ -58,11 +59,25 @@ int main(void) {
     BOARD_InitDebugConsole();
 #endif
 
-    PRINTF("Hello World\n");
+    /* init platform */
+    PRINTF("Initializing Platform...\n");
+    PL_Init();
+
+    /* init app */
+    PRINTF("Initializing App...\n");
     App_Init();
 
     /* run app */
+    PRINTF("Running App...\n");
     App_Run();
+
+    /* deinit app */
+    //PRINTF("De-Initializing App...\n");
+    //App_Deinit();
+
+    /* deinit platform */
+    PRINTF("De-Initializing Platform...\n");
+    PL_Deinit();
 
     return 0 ;
 }
