@@ -59,6 +59,7 @@ int main(void) {
 #endif
 
     PRINTF("Hello World\n");
+    App_Init();
 
     /* run app */
     App_Run();
